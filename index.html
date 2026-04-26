@@ -306,7 +306,7 @@
         </div>
         <div id="details1" class="candidate-details">
             <p>
-                <img src="https://research.lu.lv/files-asset/32091977/ambainis.jpg" width=160 />
+                <img src="https://research.lu.lv/files-asset/33106259/21498.jpg" width=160 />
             </p>
             <p>
                 I am a full professor at the Faculty of Science and Technology and a member of the Latvian Academy of Sciences. My research is at the interface of computer science, mathematics, and theoretical physics, with a focus on the algorithmic foundations of quantum computing.
@@ -359,7 +359,7 @@
         </div>
         <div id="details3" class="candidate-details">
             <p>
-                <img src="https://research.lu.lv/files-asset/32106664/mierina.jpg" width=160 />
+                <img src="https://research.lu.lv/files-asset/32228996/58932_Mieri%C5%86a_Inta.jpg" width=160 />
             </p>
             <p>
                 I am a tenured professor at the Faculty of Economics and Social Sciences and Director of the Center for Migration and Diaspora Research at the University of Latvia. My research focuses on political sociology, with particular attention to migration, diaspora, and social integration.
@@ -384,7 +384,7 @@
         </div>
         <div id="details4" class="candidate-details">
             <p>
-                <img src="https://via.placeholder.com/160" width=160 />
+                <img src="https://research.lu.lv/files-asset/32239455/50767_Bicevskis_Raivis.jpg" width=160 />
             </p>
             <p>
                 I am a tenured professor at the Faculty of Humanities and Head of the Department of Philosophy and Ethics. My research focuses on the history of philosophy, with particular attention to German philosophy from the late Middle Ages to modernity, and its connections to Baltic intellectual traditions.
@@ -402,7 +402,7 @@
                 Through my academic experience, including research periods in Germany and collaboration within European networks, I provide a research environment that supports interdisciplinary work and international integration.
             </p>
             <p>
-                CV: <a href="https://research.lu.lv/en/persons/raivis-bicevskis/" target="_blank">https://research.lu.lv/en/persons/raivis-bicevskis/</a>
+                CV: <a href="https://research.lu.lv/en/persons/raivis-bi%C4%8Devskis/" target="_blank">https://research.lu.lv/en/persons/raivis-bicevskis/</a>
             </p>
         </div>
         <div class="candidate-option">
@@ -437,7 +437,7 @@
         </div>
         <div id="details6" class="candidate-details">
             <p>
-                <img src="https://via.placeholder.com/160" width=160 />
+                <img src="https://research.lu.lv/files-asset/33106774/17651.jpg" width=160 />
             </p>
             <p>
                 I am a full professor of physics at the Faculty of Science and Technologies and I lead the Nanoelectronics Theory Group. My work focuses on quantum nanoelectronics and quantum metrology, with particular emphasis on single-electron devices and quantum dots.
@@ -461,7 +461,7 @@
                 I am involved in international collaborations within European quantum research programmes, contributing to quantum nanoelectronics and quantum metrology.
             </p>
             <p>
-                CV: <a href="https://research.lu.lv/en/persons/vjaceslavs-kascejevs/" target="_blank">https://research.lu.lv/en/persons/vjaceslavs-kascejevs/</a>
+                CV: <a href="https://research.lu.lv/en/persons/vja%C4%8Deslavs-ka%C5%A1%C4%8Dejevs/" target="_blank">https://research.lu.lv/en/persons/vjaceslavs-kascejevs/</a>
             </p>
         </div>
         <div class="candidate-option">
@@ -485,7 +485,7 @@
             <p>
                 CV: <a href="https://research.lu.lv/en/persons/vladislav-ivanistsev/" target="_blank">https://research.lu.lv/en/persons/vladislav-ivanistsev/</a>
             </p>
-        </div>   
+        </div>
     </fieldset>
     <p><button onclick="go('call')">⬅️ Call</button>&nbsp;&nbsp;&nbsp;<button onclick="go('self-evaluation')">Self‑evaluation ➡️</button></p>
   </div>
@@ -1834,7 +1834,7 @@
     <div id="title">
       <br/>
       <form id="emailForm">
-        <input type="hidden" name="title" id="emailTitle" value="TalTech 2025 candidate">
+        <input type="hidden" name="title" id="emailTitle" value="UL2026 excellenceship candidate">
         <input type="hidden" name="name" id="emailName">
         <input type="hidden" name="summary" id="emailSummary">
         <button type="submit" id="sendEmailBtn">✉️ Submit your summary</button>
@@ -1998,7 +1998,7 @@
     // ==================== Download Summary ====================
     function downloadSummaryFile() {
       const summaryElem = document.getElementById("summary");
-      const content = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>TalTech 2025 candidate</title></head><body>"
+      const content = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>UL2026 excellenceship candidate</title></head><body>"
         + summaryElem.outerHTML +
         "</body></html>";
       const blob = new Blob([content], { type: "text/html" });
@@ -2027,11 +2027,11 @@
       const fullName = `${firstName} ${familyName}`.trim();
       document.getElementById("emailSummary").value = summaryText;
       document.getElementById("emailName").value = fullName;
-      document.getElementById("emailTitle").value = "TalTech 2025 candidate";
+      document.getElementById("emailTitle").value = "UL2026 excellenceship candidate";
       const note = document.getElementById("emailNotification");
       emailjs.sendForm("service_2b0sdqa", "template_1aerpa8", this)
         .then(() => {
-          if (note) note.innerText = "📨 The email with your summary was sent successfully. If you pass the selection, you will receive a notification at the given email address by the 15th of May 2025.";
+          if (note) note.innerText = "📨 The email with your summary was sent successfully. If you pass the selection, you will receive a notification at the given email address by the 15th of May 2026.";
           if (note) { note.style.color = "green"; note.style.display = "block"; }
           const copyDiv = document.getElementById("copySummary");
           if (copyDiv) copyDiv.style.display = "block";
