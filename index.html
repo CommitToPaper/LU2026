@@ -2062,11 +2062,11 @@
         data[key] = el.value;
       }
     });
-    localStorage.setItem("taltechFormData", JSON.stringify(data));
+    localStorage.setItem("UL2026FormData", JSON.stringify(data));
   }
 
   function loadFormData() {
-    const json = localStorage.getItem("taltechFormData");
+    const json = localStorage.getItem("UL2026FormData");
     if (!json) return;
     const data = JSON.parse(json);
     Object.entries(data).forEach(([key, value]) => {
