@@ -227,6 +227,10 @@
     button:hover {
       color: #f9b234;
     }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
 
     /* Mobile styles */
     @media (max-width: 600px) {
@@ -2009,30 +2013,63 @@
 
     // ==================== Submit Email Summary ====================
     document.getElementById("emailForm")?.addEventListener("submit", function(event) {
-      event.preventDefault();
-      const summaryElem = document.getElementById("summary");
-      if (!summaryElem) return;
-      const summaryText = summaryElem.innerText || "";
-      const firstName = document.getElementById("firstName")?.value.trim() || "";
-      const familyName = document.getElementById("familyName")?.value.trim() || "";
-      const fullName = `${firstName} ${familyName}`.trim();
-      document.getElementById("emailSummary").value = summaryText;
-      document.getElementById("emailName").value = fullName;
-      document.getElementById("emailTitle").value = "UL2026 excellenceship candidate";
-      const note = document.getElementById("emailNotification");
-      emailjs.sendForm("service_2b0sdqa", "template_1aerpa8", this)
-        .then(() => {
-          if (note) note.innerText = "📨 The email with your summary was sent successfully. If you pass the selection, you will receive a notification at the given email address by the 15th of May 2026.";
-          if (note) { note.style.color = "green"; note.style.display = "block"; }
-          const copyDiv = document.getElementById("copySummary");
-          if (copyDiv) copyDiv.style.display = "block";
-        })
-        .catch(() => {
-          if (note) note.innerHTML = `❌ Failed to send an email. Please send the summary to <a href="mailto:vladislav.ivanistsev@gmail.com">vladislav.ivanistsev@gmail.com</a>.`;
-          if (note) { note.style.color = "red"; note.style.display = "block"; }
-          const copyDiv = document.getElementById("copySummary");
-          if (copyDiv) copyDiv.style.display = "block";
-        });
+        event.preventDefault();
+
+        const btn = document.getElementById("sendEmailBtn");
+        const note = document.getElementById("emailNotification");
+
+        // Immediate feedback
+        if (btn) {
+            btn.disabled = true;
+            btn.innerText = "⏳ Submitting...";
+        }
+        if (note) {
+            note.innerText = "Submitting your summary...";
+            note.style.color = "black";
+            note.style.display = "block";
+        }
+
+        const summaryElem = document.getElementById("summary");
+        if (!summaryElem) return;
+
+        const summaryText = summaryElem.innerText || "";
+        const firstName = document.getElementById("firstName")?.value.trim() || "";
+        const familyName = document.getElementById("familyName")?.value.trim() || "";
+        const fullName = `${firstName} ${familyName}`.trim();
+
+        document.getElementById("emailSummary").value = summaryText;
+        document.getElementById("emailName").value = fullName;
+        document.getElementById("emailTitle").value = "UL2026 excellenceship candidate";
+
+        emailjs.sendForm("service_2b0sdqa", "template_1aerpa8", this)
+            .then(() => {
+                if (note) {
+                    note.innerText = "📨 The email with your summary was sent successfully. If you pass the selection, you will receive a notification at the given email address by the 15th of May 2026.";
+                    note.style.color = "green";
+                }
+
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "✉️ Submit your summary";
+                }
+
+                const copyDiv = document.getElementById("copySummary");
+                if (copyDiv) copyDiv.style.display = "block";
+            })
+            .catch(() => {
+                if (note) {
+                    note.innerHTML = `❌ Failed to send an email. Please send the summary to <a href="mailto:vladislav.ivanistsev@gmail.com">vladislav.ivanistsev@gmail.com</a>.`;
+                    note.style.color = "red";
+                }
+
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = "✉️ Submit your summary";
+                }
+
+                const copyDiv = document.getElementById("copySummary");
+                if (copyDiv) copyDiv.style.display = "block";
+            });
     });
 
   // ==================== Local Storage ====================
